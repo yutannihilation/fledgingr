@@ -1,0 +1,56 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# fledgingr: An R Bindings Of [Sudachi.rs](https://github.com/WorksApplications/sudachi.rs)
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This is an experimental R package to provide an interface to sudachi.rs, a Rust implementation of Sudachi.
+
+## Why fledgingr?
+
+fledging = 巣立ち (sudachi)
+
+## Prior work
+
+* [uribo/sudachir](https://github.com/uribo/sudachir)
+
+## Installation
+
+You can install the development version of fledgingr:
+
+``` r
+devtools::install_github("yutannihilation/fledgingr")
+```
+
+## Example
+
+```{r}
+library(fledingr)
+
+# Download the dictionary from https://github.com/WorksApplications/SudachiDict
+Sys.setenv(SUDACHI_DICT_PATH = "~/Downloads/sudachi-dictionary-20210802/system_full.dic")
+
+x <- c(
+  "高輪ゲートウェイ駅",
+  "選挙管理委員会"
+)
+
+fledgingr(x, "A")
+fledgingr(x, "B")
+fledgingr(x, "C")
+```
+
