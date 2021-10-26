@@ -1,5 +1,5 @@
 #' @export
-fledgingr <- function(x, mode = c("A", "B", "C")) {
+tokenize <- function(x, mode = c("A", "B", "C")) {
   mode <- match.arg(mode)
 
   path <- Sys.getenv("SUDACHI_DICT_PATH")
@@ -9,5 +9,5 @@ fledgingr <- function(x, mode = c("A", "B", "C")) {
 
   path <- path.expand(path)
 
-  fledgingr_inner(x, path, mode)
+  tokenize_inner(x, path, mode)
 }

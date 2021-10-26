@@ -19,6 +19,8 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 This is an experimental R package to provide an interface to sudachi.rs, a Rust implementation of Sudachi.
+The Rust code is based mainly on [this CLI tool](https://github.com/WorksApplications/sudachi.rs/blob/ad1f15818536a379c668ea48fcebaca2278df38e/sudachi-cli/src/main.rs) on
+the sudachi.rs repository, which is licensed under Apache-2.0 License.
 
 ## Why fledgingr?
 
@@ -39,18 +41,23 @@ devtools::install_github("yutannihilation/fledgingr")
 ## Example
 
 ```{r}
-library(fledingr)
+library(fledgingr)
 
 # Download the dictionary from https://github.com/WorksApplications/SudachiDict
 Sys.setenv(SUDACHI_DICT_PATH = "~/Downloads/sudachi-dictionary-20210802/system_full.dic")
 
 x <- c(
-  "高輪ゲートウェイ駅",
-  "選挙管理委員会"
+  "今日もあなただけにニンジャの真実をお伝えしていきます",
+  "高輪ゲートウェイ駅"
 )
 
-fledgingr(x, "A")
-fledgingr(x, "B")
-fledgingr(x, "C")
+knitr::kable(tokenize(x))
+```
+
+```{r}
+# Change mode
+tokenize("選挙管理委員会", mode = "A")$surface
+tokenize("選挙管理委員会", mode = "B")$surface
+tokenize("選挙管理委員会", mode = "C")$surface
 ```
 
