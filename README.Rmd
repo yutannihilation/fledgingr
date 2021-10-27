@@ -57,8 +57,9 @@ x <- c(
 knitr::kable(tokenize(x))
 ```
 
+You can change the mode. By default, `"C"` is chosen.
+
 ```{r}
-# Change mode
 tokenize("選挙管理委員会", mode = "A")$surface
 tokenize("選挙管理委員会", mode = "B")$surface
 tokenize("選挙管理委員会", mode = "C")$surface

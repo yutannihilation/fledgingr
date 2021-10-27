@@ -1,5 +1,5 @@
 #' @export
-tokenize <- function(x, mode = c("A", "B", "C")) {
+tokenize <- function(x, mode = c("C", "B", "A")) {
   mode <- match.arg(mode)
 
   path <- Sys.getenv("SUDACHI_DICT_PATH")
