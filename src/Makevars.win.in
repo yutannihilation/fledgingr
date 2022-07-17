@@ -2,8 +2,12 @@
 # available when configure.win is used. So, R_ARCH is chosen here.
 TARGET = $(subst /x64,x86_64,$(subst /i386,i686,$(R_ARCH)))-pc-windows-gnu
 
-# This is provided in Makevars.ucrt for R >= 4.2
-TOOLCHAIN ?= stable-msvc
+# Use GNU toolchain for R >= 4.2
+TOOLCHAIN = stable-gnu
+
+# Rtools42 doesn't have the linker in the location that cargo expects, so we
+# need to overwrite it via configuration.
+CARGO_LINKER = x86_64-w64-mingw32.static.posix-gcc.exe
 
 CRATE_NAME = fledgingr
 
