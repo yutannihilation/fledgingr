@@ -5,6 +5,8 @@ Version: 0.0.0.9001
 Authors@R: 
     person("Hiroaki", "Yutani", , "yutani.ini@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-3385-7233"))
+Depends:
+  R (>= 4.2)
 Imports:
   cli,
   curl,
