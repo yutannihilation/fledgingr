@@ -18,7 +18,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
 Config/fledgingr/crate_name: fledgingr
 Config/fledgingr/github_repo: yutannihilation/fledgingr
-Config/fledgingr/github_tag: build_20220717-3
+Config/fledgingr/github_tag: build-20220717-3
 Config/fledgingr/binary_sha256sum:
     list(
         `aarch64-apple-darwin-libfledgingr.a`  = "2028c672014443b7a9d91cad77730eef52154f3cd1aa0a7265f702f14f8d7ffc",
