@@ -37,15 +37,16 @@ devtools::install_github("yutannihilation/fledgingr")
 ``` r
 library(fledgingr)
 
-# Download the dictionary from https://github.com/WorksApplications/SudachiDict
-Sys.setenv(SUDACHI_DICT_PATH = "~/Downloads/sudachi-dictionary-20210802/system_full.dic")
-
 x <- c(
   "今日もあなただけにニンジャの真実をお伝えしていきます",
   "高輪ゲートウェイ駅"
 )
 
 knitr::kable(tokenize(x))
+#> Downloading the full dictionary for Sudachi...
+#> Done.
+#> ℹ Please visit <https://github.com/WorksApplications/SudachiDict> and review
+#>   the license and the terms of use
 ```
 
 |  id | surface            | dictionary_form    | reading_form             | normalized_form    | part_of_speech1 | part_of_speech2 | part_of_speech3 | part_of_speech4 | inflectional_type | inflectional_form |
@@ -55,7 +56,7 @@ knitr::kable(tokenize(x))
 |   0 | あなた             | あなた             | アナタ                   | 貴方               | 代名詞          | \*              | \*              | \*              | \*                | \*                |
 |   0 | だけ               | だけ               | ダケ                     | だけ               | 助詞            | 副助詞          | \*              | \*              | \*                | \*                |
 |   0 | に                 | に                 | ニ                       | に                 | 助詞            | 格助詞          | \*              | \*              | \*                | \*                |
-|   0 | ニンジャ           | ニンジャ           |                          | 忍者               | 名詞            | 普通名詞        | 一般            | \*              | \*                | \*                |
+|   0 | ニンジャ           | ニンジャ           | ニンジャ                 | 忍者               | 名詞            | 普通名詞        | 一般            | \*              | \*                | \*                |
 |   0 | の                 | の                 | ノ                       | の                 | 助詞            | 格助詞          | \*              | \*              | \*                | \*                |
 |   0 | 真実               | 真実               | シンジツ                 | 真実               | 名詞            | 普通名詞        | 一般            | \*              | \*                | \*                |
 |   0 | を                 | を                 | ヲ                       | を                 | 助詞            | 格助詞          | \*              | \*              | \*                | \*                |

@@ -46,9 +46,6 @@ devtools::install_github("yutannihilation/fledgingr")
 ```{r}
 library(fledgingr)
 
-# Download the dictionary from https://github.com/WorksApplications/SudachiDict
-Sys.setenv(SUDACHI_DICT_PATH = "~/Downloads/sudachi-dictionary-20210802/system_full.dic")
-
 x <- c(
   "今日もあなただけにニンジャの真実をお伝えしていきます",
   "高輪ゲートウェイ駅"

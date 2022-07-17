@@ -6,20 +6,38 @@ use sudachi::analysis::Mode;
 use sudachi::config::Config;
 use sudachi::dic::dictionary::JapaneseDictionary;
 use sudachi::prelude::MorphemeList;
-use sudachi::sentence_detector::NonBreakChecker;
 use sudachi::sentence_splitter::{SentenceSplitter, SplitSentences};
 
-#[extendr]
+#[extendr(use_try_from = true)]
 fn tokenize_inner(x: Strings, path: &str, mode: &str) -> Robj {
     let path = Some(path.into());
-    let config = Config::new(None, None, path).unwrap();
-    let dict = JapaneseDictionary::from_cfg(&config).unwrap();
 
-    let mode = Mode::from_str(mode).unwrap();
+    let config = match Config::new(None, None, path) {
+        Ok(config) => config,
+        Err(e) => {
+            reprintln!("{:?}", e);
+            return NULL.into();
+        }
+    };
+
+    let dict = match JapaneseDictionary::from_cfg(&config) {
+        Ok(dict) => dict,
+        Err(e) => {
+            reprintln!("{:?}", e);
+            return NULL.into();
+        }
+    };
+
+    let mode = match Mode::from_str(mode) {
+        Ok(mode) => mode,
+        Err(e) => {
+            reprintln!("{:?}", e);
+            return NULL.into();
+        }
+    };
 
     let mut tokenizer = StatefulTokenizer::create(&dict, false, mode);
-    let checker = NonBreakChecker::new(dict.lexicon());
-    let splitter = SentenceSplitter::with_limit(32 * 1024).with_checker(&checker);
+    let splitter = SentenceSplitter::with_limit(32 * 1024).with_checker(dict.lexicon());
 
     // TODO: create a struct
     let capacity = x.len();
@@ -53,7 +71,7 @@ fn tokenize_inner(x: Strings, path: &str, mode: &str) -> Robj {
                 reading_form.push(m.reading_form().to_string());
                 normalized_form.push(m.normalized_form().to_string());
 
-                let part_of_speech = m.part_of_speech().unwrap();
+                let part_of_speech = m.part_of_speech();
                 part_of_speech1.push(part_of_speech[0].clone());
                 part_of_speech2.push(part_of_speech[1].clone());
                 part_of_speech3.push(part_of_speech[2].clone());

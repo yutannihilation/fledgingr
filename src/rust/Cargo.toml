@@ -7,5 +7,5 @@ edition = "2021"
 crate-type = ["staticlib"]
 
 [dependencies]
-extendr-api = { git = "https://github.com/extendr/extendr" }
+extendr-api = "0.3"
 sudachi = { git = "https://github.com/WorksApplications/sudachi.rs/" }
