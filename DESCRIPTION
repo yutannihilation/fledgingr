@@ -25,3 +25,6 @@ Config/fledgingr/binary_sha256sum:
         `x86_64-apple-darwin-libfledgingr.a`   = "214a7dc11114225fd371d0026ec3d4b68c3f0b20af755a52c1fb7b72901594b0",
         `x86_64-pc-windows-gnu-libfledgingr.a` = "68e3349b4601bc91b0bc4e159589bf017ec0747fd6a4f346024c7ca2ed9781cc"
     )
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
