@@ -16,3 +16,12 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
+Config/fledgingr/crate_name: fledgingr
+Config/fledgingr/github_repo: yutannihilation/fledgingr
+Config/fledgingr/github_tag: build_20220717-3
+Config/fledgingr/binary_sha256sum:
+    list(
+        `aarch64-apple-darwin-libfledgingr.a`  = "2028c672014443b7a9d91cad77730eef52154f3cd1aa0a7265f702f14f8d7ffc",
+        `x86_64-apple-darwin-libfledgingr.a`   = "214a7dc11114225fd371d0026ec3d4b68c3f0b20af755a52c1fb7b72901594b0",
+        `x86_64-pc-windows-gnu-libfledgingr.a` = "68e3349b4601bc91b0bc4e159589bf017ec0747fd6a4f346024c7ca2ed9781cc"
+    )
