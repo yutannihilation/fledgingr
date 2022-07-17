@@ -31,8 +31,6 @@
 
 SYSINFO_OS      <- tolower(Sys.info()[["sysname"]])
 SYSINFO_MACHINE <- Sys.info()[["machine"]]
-HAS_32BIT_R     <- dir.exists(file.path(R.home(), "bin", "i386"))
-USE_UCRT        <- identical(R.version$crt, "ucrt")
 
 
 # Utilities ---------------------------------------------------------------
@@ -109,7 +107,7 @@ check_cargo <- function() {
   }
 
   # On Windows, check the toolchain as well.
-  if (identical(SYSINFO_OS, "windows") && USE_UCRT) {
+  if (identical(SYSINFO_OS, "windows")) {
     cat("*** Checking if the GNU version of Rust toolchain is installed\n")
 
     cargo_args <- c("+stable-gnu", cargo_args)
@@ -124,38 +122,11 @@ check_cargo <- function() {
     }
   }
 
-  ### Check the version ###
-
-  msrv <- get_desc_field("MSRV", optional = TRUE)
-
-  if (isTRUE(!is.na(msrv))) {
-    cat("*** Checking if cargo is newer than the required version\n")
-
-    version <- res_version$output
-
-    ptn <- "cargo\\s+(\\d+\\.\\d+\\.\\d+)"
-    m <- regmatches(version, regexec(ptn, version))[[1]]
-
-    if (length(m) != 2) {
-      stop(errorCondition("cargo version returned unexpected result", class = c("string2path_error_cargo_check", "error")))
-    }
-
-    if (package_version(m[2]) < package_version(msrv)) {
-      msg <- sprintf("The installed version of cargo (%s) is older than the requirement (%s)", m[2], msrv)
-      stop(errorCondition(msg, class = c("string2path_error_cargo_check", "error")))
-    }
-  }
-
   ### Check the toolchains ###
   if (identical(SYSINFO_OS, "windows")) {
     cat("*** Checking if the required Rust target is installed\n")
 
     expected_targets <- "x86_64-pc-windows-gnu"
-
-    # If there is 32-bit version of R, check 32bit toolchain as well
-    if (isTRUE(HAS_32BIT_R)) {
-      expected_targets <- c(expected_targets, "i686-pc-windows-gnu")
-    }
 
     targets <- safe_system2("rustup", c("target", "list", "--installed"))
     unavailable_targets <- setdiff(expected_targets, targets$output)
@@ -195,18 +166,10 @@ download_precompiled <- function() {
 
   checksums <- get_expected_checksums()
 
-  # For UCRT Windows, add ucrt- prefix
-  crt_prefix <- if (isTRUE(USE_UCRT)) "ucrt-" else ""
-
   download_targets <- character(0)
 
   if (identical(SYSINFO_OS, "windows")) {
     download_targets <- "x86_64-pc-windows-gnu"
-
-    # If there is 32-bit version installation, download the binary
-    if (isTRUE(HAS_32BIT_R)) {
-      download_targets <- c(download_targets, "i686-pc-windows-gnu")
-    }
 
     sha256sum_cmd <- "sha256sum"
     sha256sum_cmd_args <- character(0)
@@ -223,7 +186,7 @@ download_precompiled <- function() {
 
   if (length(download_targets) > 0) {
     # restrict only the available ones
-    download_targets <- download_targets[sprintf("%s%s-lib%s.a", crt_prefix, download_targets, crate_name) %in% checksums$filename]
+    download_targets <- download_targets[sprintf("%s-lib%s.a", download_targets, crate_name) %in% checksums$filename]
   }
 
   # If there's no checksum available for the platform, it means there's no binary
@@ -253,7 +216,7 @@ download_precompiled <- function() {
   ### Download the files ###
 
   for (target in download_targets) {
-    src_file <- sprintf("%s%s-lib%s.a", crt_prefix, target, crate_name)
+    src_file <- sprintf("%s-lib%s.a", target, crate_name)
     checksum_expected <- checksums$sha256sum[checksums$filename == src_file]
 
     src_url <- paste0("https://github.com/", github_repo, "/releases/download/", github_tag, "/", src_file)
