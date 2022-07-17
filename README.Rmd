@@ -35,10 +35,15 @@ fledging = 巣立ち (sudachi)
 
 ## Installation
 
-You can install the development version of fledgingr:
+You can install the development version of fledgingr from r-universe:
 
 ``` r
-devtools::install_github("yutannihilation/fledgingr")
+install.packages("fledgingr",
+  repos = c(
+    yutannihilation = "https://yutannihilation.r-universe.dev",
+    CRAN = "https://cloud.r-project.org"
+  )
+)
 ```
 
 ## Example
@@ -51,7 +56,7 @@ x <- c(
   "高輪ゲートウェイ駅"
 )
 
-knitr::kable(tokenize(x))
+tokenize(x)
 ```
 
 You can change the mode. By default, `"C"` is chosen.

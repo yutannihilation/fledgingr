@@ -19,7 +19,8 @@ fledgingr_dict_file <- function(create_dir = FALSE) {
   if (create_dir) {
     dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
   }
-  file.path(cache_dir, "system_full.dic")
+
+  path.expand(file.path(cache_dir, "system_full.dic"))
 }
 
 download_sudachi_dict <- function(overwrite = FALSE) {

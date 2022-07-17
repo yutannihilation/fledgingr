@@ -26,10 +26,15 @@ fledging = 巣立ち (sudachi)
 
 ## Installation
 
-You can install the development version of fledgingr:
+You can install the development version of fledgingr from r-universe:
 
 ``` r
-devtools::install_github("yutannihilation/fledgingr")
+install.packages("fledgingr",
+  repos = c(
+    yutannihilation = "https://yutannihilation.r-universe.dev",
+    CRAN = "https://cloud.r-project.org"
+  )
+)
 ```
 
 ## Example
@@ -42,31 +47,59 @@ x <- c(
   "高輪ゲートウェイ駅"
 )
 
-knitr::kable(tokenize(x))
-#> Downloading the full dictionary for Sudachi...
-#> Done.
-#> ℹ Please visit <https://github.com/WorksApplications/SudachiDict> and review
-#>   the license and the terms of use
+tokenize(x)
+#>    id            surface    dictionary_form             reading_form
+#> 1   0               今日               今日                   キョウ
+#> 2   0                 も                 も                       モ
+#> 3   0             あなた             あなた                   アナタ
+#> 4   0               だけ               だけ                     ダケ
+#> 5   0                 に                 に                       ニ
+#> 6   0           ニンジャ           ニンジャ                 ニンジャ
+#> 7   0                 の                 の                       ノ
+#> 8   0               真実               真実                 シンジツ
+#> 9   0                 を                 を                       ヲ
+#> 10  0                 お                 お                       オ
+#> 11  0               伝え             伝える                   ツタエ
+#> 12  0                 し               する                       シ
+#> 13  0                 て                 て                       テ
+#> 14  0               いき               いく                     イキ
+#> 15  0               ます               ます                     マス
+#> 16  1 高輪ゲートウェイ駅 高輪ゲートウェイ駅 タカナワゲートウェイエキ
+#>       normalized_form part_of_speech1 part_of_speech2 part_of_speech3
+#> 1                今日            名詞        普通名詞        副詞可能
+#> 2                  も            助詞          係助詞               *
+#> 3                貴方          代名詞               *               *
+#> 4                だけ            助詞          副助詞               *
+#> 5                  に            助詞          格助詞               *
+#> 6                忍者            名詞        普通名詞            一般
+#> 7                  の            助詞          格助詞               *
+#> 8                真実            名詞        普通名詞            一般
+#> 9                  を            助詞          格助詞               *
+#> 10                 御          接頭辞               *               *
+#> 11             伝える            動詞            一般               *
+#> 12               為る            動詞      非自立可能               *
+#> 13                 て            助詞        接続助詞               *
+#> 14               行く            動詞      非自立可能               *
+#> 15               ます          助動詞               *               *
+#> 16 高輪ゲートウェイ駅            名詞        固有名詞            一般
+#>    part_of_speech4 inflectional_type inflectional_form
+#> 1                *                 *                 *
+#> 2                *                 *                 *
+#> 3                *                 *                 *
+#> 4                *                 *                 *
+#> 5                *                 *                 *
+#> 6                *                 *                 *
+#> 7                *                 *                 *
+#> 8                *                 *                 *
+#> 9                *                 *                 *
+#> 10               *                 *                 *
+#> 11               *       下一段-ア行       連用形-一般
+#> 12               *          サ行変格       連用形-一般
+#> 13               *                 *                 *
+#> 14               *         五段-カ行       連用形-一般
+#> 15               *       助動詞-マス       終止形-一般
+#> 16               *                 *                 *
 ```
-
-|  id | surface            | dictionary_form    | reading_form             | normalized_form    | part_of_speech1 | part_of_speech2 | part_of_speech3 | part_of_speech4 | inflectional_type | inflectional_form |
-|----:|:-------------------|:-------------------|:-------------------------|:-------------------|:----------------|:----------------|:----------------|:----------------|:------------------|:------------------|
-|   0 | 今日               | 今日               | キョウ                   | 今日               | 名詞            | 普通名詞        | 副詞可能        | \*              | \*                | \*                |
-|   0 | も                 | も                 | モ                       | も                 | 助詞            | 係助詞          | \*              | \*              | \*                | \*                |
-|   0 | あなた             | あなた             | アナタ                   | 貴方               | 代名詞          | \*              | \*              | \*              | \*                | \*                |
-|   0 | だけ               | だけ               | ダケ                     | だけ               | 助詞            | 副助詞          | \*              | \*              | \*                | \*                |
-|   0 | に                 | に                 | ニ                       | に                 | 助詞            | 格助詞          | \*              | \*              | \*                | \*                |
-|   0 | ニンジャ           | ニンジャ           | ニンジャ                 | 忍者               | 名詞            | 普通名詞        | 一般            | \*              | \*                | \*                |
-|   0 | の                 | の                 | ノ                       | の                 | 助詞            | 格助詞          | \*              | \*              | \*                | \*                |
-|   0 | 真実               | 真実               | シンジツ                 | 真実               | 名詞            | 普通名詞        | 一般            | \*              | \*                | \*                |
-|   0 | を                 | を                 | ヲ                       | を                 | 助詞            | 格助詞          | \*              | \*              | \*                | \*                |
-|   0 | お                 | お                 | オ                       | 御                 | 接頭辞          | \*              | \*              | \*              | \*                | \*                |
-|   0 | 伝え               | 伝える             | ツタエ                   | 伝える             | 動詞            | 一般            | \*              | \*              | 下一段-ア行       | 連用形-一般       |
-|   0 | し                 | する               | シ                       | 為る               | 動詞            | 非自立可能      | \*              | \*              | サ行変格          | 連用形-一般       |
-|   0 | て                 | て                 | テ                       | て                 | 助詞            | 接続助詞        | \*              | \*              | \*                | \*                |
-|   0 | いき               | いく               | イキ                     | 行く               | 動詞            | 非自立可能      | \*              | \*              | 五段-カ行         | 連用形-一般       |
-|   0 | ます               | ます               | マス                     | ます               | 助動詞          | \*              | \*              | \*              | 助動詞-マス       | 終止形-一般       |
-|   1 | 高輪ゲートウェイ駅 | 高輪ゲートウェイ駅 | タカナワゲートウェイエキ | 高輪ゲートウェイ駅 | 名詞            | 固有名詞        | 一般            | \*              | \*                | \*                |
 
 You can change the mode. By default, `"C"` is chosen.
 
