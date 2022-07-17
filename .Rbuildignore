@@ -1,3 +1,7 @@
 ^fledgingr\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
+^LICENSE\.md$
+^\.github$
+^src/.cargo$
+^src/rust/.vscode$

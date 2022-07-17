@@ -38,7 +38,7 @@ download_sudachi_dict <- function(overwrite = FALSE) {
     destfile = temp_zip
   )
 
-  unzip(temp_zip, exdir = tempdir)
+  utils::unzip(temp_zip, exdir = tempdir)
 
   dic_file <- list.files(tempdir, full.names = TRUE, pattern = "system_full\\.dic$", recursive = TRUE)
 
