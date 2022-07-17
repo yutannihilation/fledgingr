@@ -74,9 +74,14 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of fledgingr:</p>
+<p>You can install the development version of fledgingr from r-universe:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"yutannihilation/fledgingr"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"fledgingr"</span>,</span>
+<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>    yutannihilation <span class="op">=</span> <span class="st">"https://yutannihilation.r-universe.dev"</span>,</span>
+<span>    CRAN <span class="op">=</span> <span class="st">"https://cloud.r-project.org"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
@@ -89,249 +94,58 @@
 <span>  <span class="st">"高輪ゲートウェイ駅"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="reference/tokenize.html">tokenize</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Downloading the full dictionary for Sudachi...</span></span>
-<span><span class="co">#&gt; Done.</span></span>
-<span><span class="co">#&gt; ℹ Please visit &lt;https://github.com/WorksApplications/SudachiDict&gt; and review</span></span>
-<span><span class="co">#&gt;   the license and the terms of use</span></span></code></pre></div>
-<table class="table">
-<colgroup>
-<col width="2%">
-<col width="10%">
-<col width="10%">
-<col width="13%">
-<col width="10%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="9%">
-<col width="9%">
-</colgroup>
-<thead><tr class="header">
-<th align="right">id</th>
-<th align="left">surface</th>
-<th align="left">dictionary_form</th>
-<th align="left">reading_form</th>
-<th align="left">normalized_form</th>
-<th align="left">part_of_speech1</th>
-<th align="left">part_of_speech2</th>
-<th align="left">part_of_speech3</th>
-<th align="left">part_of_speech4</th>
-<th align="left">inflectional_type</th>
-<th align="left">inflectional_form</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="right">0</td>
-<td align="left">今日</td>
-<td align="left">今日</td>
-<td align="left">キョウ</td>
-<td align="left">今日</td>
-<td align="left">名詞</td>
-<td align="left">普通名詞</td>
-<td align="left">副詞可能</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="left">も</td>
-<td align="left">も</td>
-<td align="left">モ</td>
-<td align="left">も</td>
-<td align="left">助詞</td>
-<td align="left">係助詞</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="left">あなた</td>
-<td align="left">あなた</td>
-<td align="left">アナタ</td>
-<td align="left">貴方</td>
-<td align="left">代名詞</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="left">だけ</td>
-<td align="left">だけ</td>
-<td align="left">ダケ</td>
-<td align="left">だけ</td>
-<td align="left">助詞</td>
-<td align="left">副助詞</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="left">に</td>
-<td align="left">に</td>
-<td align="left">ニ</td>
-<td align="left">に</td>
-<td align="left">助詞</td>
-<td align="left">格助詞</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="left">ニンジャ</td>
-<td align="left">ニンジャ</td>
-<td align="left">ニンジャ</td>
-<td align="left">忍者</td>
-<td align="left">名詞</td>
-<td align="left">普通名詞</td>
-<td align="left">一般</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="left">の</td>
-<td align="left">の</td>
-<td align="left">ノ</td>
-<td align="left">の</td>
-<td align="left">助詞</td>
-<td align="left">格助詞</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="left">真実</td>
-<td align="left">真実</td>
-<td align="left">シンジツ</td>
-<td align="left">真実</td>
-<td align="left">名詞</td>
-<td align="left">普通名詞</td>
-<td align="left">一般</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="left">を</td>
-<td align="left">を</td>
-<td align="left">ヲ</td>
-<td align="left">を</td>
-<td align="left">助詞</td>
-<td align="left">格助詞</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="left">お</td>
-<td align="left">お</td>
-<td align="left">オ</td>
-<td align="left">御</td>
-<td align="left">接頭辞</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="left">伝え</td>
-<td align="left">伝える</td>
-<td align="left">ツタエ</td>
-<td align="left">伝える</td>
-<td align="left">動詞</td>
-<td align="left">一般</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">下一段-ア行</td>
-<td align="left">連用形-一般</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="left">し</td>
-<td align="left">する</td>
-<td align="left">シ</td>
-<td align="left">為る</td>
-<td align="left">動詞</td>
-<td align="left">非自立可能</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">サ行変格</td>
-<td align="left">連用形-一般</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="left">て</td>
-<td align="left">て</td>
-<td align="left">テ</td>
-<td align="left">て</td>
-<td align="left">助詞</td>
-<td align="left">接続助詞</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="left">いき</td>
-<td align="left">いく</td>
-<td align="left">イキ</td>
-<td align="left">行く</td>
-<td align="left">動詞</td>
-<td align="left">非自立可能</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">五段-カ行</td>
-<td align="left">連用形-一般</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="left">ます</td>
-<td align="left">ます</td>
-<td align="left">マス</td>
-<td align="left">ます</td>
-<td align="left">助動詞</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">助動詞-マス</td>
-<td align="left">終止形-一般</td>
-</tr>
-<tr class="even">
-<td align="right">1</td>
-<td align="left">高輪ゲートウェイ駅</td>
-<td align="left">高輪ゲートウェイ駅</td>
-<td align="left">タカナワゲートウェイエキ</td>
-<td align="left">高輪ゲートウェイ駅</td>
-<td align="left">名詞</td>
-<td align="left">固有名詞</td>
-<td align="left">一般</td>
-<td align="left">*</td>
-<td align="left">*</td>
-<td align="left">*</td>
-</tr>
-</tbody>
-</table>
+<span><span class="fu"><a href="reference/tokenize.html">tokenize</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    id            surface    dictionary_form             reading_form</span></span>
+<span><span class="co">#&gt; 1   0               今日               今日                   キョウ</span></span>
+<span><span class="co">#&gt; 2   0                 も                 も                       モ</span></span>
+<span><span class="co">#&gt; 3   0             あなた             あなた                   アナタ</span></span>
+<span><span class="co">#&gt; 4   0               だけ               だけ                     ダケ</span></span>
+<span><span class="co">#&gt; 5   0                 に                 に                       ニ</span></span>
+<span><span class="co">#&gt; 6   0           ニンジャ           ニンジャ                 ニンジャ</span></span>
+<span><span class="co">#&gt; 7   0                 の                 の                       ノ</span></span>
+<span><span class="co">#&gt; 8   0               真実               真実                 シンジツ</span></span>
+<span><span class="co">#&gt; 9   0                 を                 を                       ヲ</span></span>
+<span><span class="co">#&gt; 10  0                 お                 お                       オ</span></span>
+<span><span class="co">#&gt; 11  0               伝え             伝える                   ツタエ</span></span>
+<span><span class="co">#&gt; 12  0                 し               する                       シ</span></span>
+<span><span class="co">#&gt; 13  0                 て                 て                       テ</span></span>
+<span><span class="co">#&gt; 14  0               いき               いく                     イキ</span></span>
+<span><span class="co">#&gt; 15  0               ます               ます                     マス</span></span>
+<span><span class="co">#&gt; 16  1 高輪ゲートウェイ駅 高輪ゲートウェイ駅 タカナワゲートウェイエキ</span></span>
+<span><span class="co">#&gt;       normalized_form part_of_speech1 part_of_speech2 part_of_speech3</span></span>
+<span><span class="co">#&gt; 1                今日            名詞        普通名詞        副詞可能</span></span>
+<span><span class="co">#&gt; 2                  も            助詞          係助詞               *</span></span>
+<span><span class="co">#&gt; 3                貴方          代名詞               *               *</span></span>
+<span><span class="co">#&gt; 4                だけ            助詞          副助詞               *</span></span>
+<span><span class="co">#&gt; 5                  に            助詞          格助詞               *</span></span>
+<span><span class="co">#&gt; 6                忍者            名詞        普通名詞            一般</span></span>
+<span><span class="co">#&gt; 7                  の            助詞          格助詞               *</span></span>
+<span><span class="co">#&gt; 8                真実            名詞        普通名詞            一般</span></span>
+<span><span class="co">#&gt; 9                  を            助詞          格助詞               *</span></span>
+<span><span class="co">#&gt; 10                 御          接頭辞               *               *</span></span>
+<span><span class="co">#&gt; 11             伝える            動詞            一般               *</span></span>
+<span><span class="co">#&gt; 12               為る            動詞      非自立可能               *</span></span>
+<span><span class="co">#&gt; 13                 て            助詞        接続助詞               *</span></span>
+<span><span class="co">#&gt; 14               行く            動詞      非自立可能               *</span></span>
+<span><span class="co">#&gt; 15               ます          助動詞               *               *</span></span>
+<span><span class="co">#&gt; 16 高輪ゲートウェイ駅            名詞        固有名詞            一般</span></span>
+<span><span class="co">#&gt;    part_of_speech4 inflectional_type inflectional_form</span></span>
+<span><span class="co">#&gt; 1                *                 *                 *</span></span>
+<span><span class="co">#&gt; 2                *                 *                 *</span></span>
+<span><span class="co">#&gt; 3                *                 *                 *</span></span>
+<span><span class="co">#&gt; 4                *                 *                 *</span></span>
+<span><span class="co">#&gt; 5                *                 *                 *</span></span>
+<span><span class="co">#&gt; 6                *                 *                 *</span></span>
+<span><span class="co">#&gt; 7                *                 *                 *</span></span>
+<span><span class="co">#&gt; 8                *                 *                 *</span></span>
+<span><span class="co">#&gt; 9                *                 *                 *</span></span>
+<span><span class="co">#&gt; 10               *                 *                 *</span></span>
+<span><span class="co">#&gt; 11               *       下一段-ア行       連用形-一般</span></span>
+<span><span class="co">#&gt; 12               *          サ行変格       連用形-一般</span></span>
+<span><span class="co">#&gt; 13               *                 *                 *</span></span>
+<span><span class="co">#&gt; 14               *         五段-カ行       連用形-一般</span></span>
+<span><span class="co">#&gt; 15               *       助動詞-マス       終止形-一般</span></span>
+<span><span class="co">#&gt; 16               *                 *                 *</span></span></code></pre></div>
 <p>You can change the mode. By default, <code>"C"</code> is chosen.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/tokenize.html">tokenize</a></span><span class="op">(</span><span class="st">"選挙管理委員会"</span>, mode <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span><span class="op">$</span><span class="va">surface</span></span>
