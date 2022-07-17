@@ -4,5 +4,5 @@
 .httr-oauth
 .DS_Store
 
-/inst/dict
-!/inst/dict/README
+src/Makevars
+src/Makevars.win
