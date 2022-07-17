@@ -64,6 +64,9 @@ jobs:
 
       - uses: r-lib/actions/check-r-package@v2
 
+      - name: debug
+        run: cat ./check/fledgingr.Rcheck/00install.out
+
       # Upload prebuilt binaries for Windows
       - name: Tweak staticlib on Windows
         if: runner.os == 'Windows' && matrix.config.r == 'release'
