@@ -2,6 +2,7 @@ Package: fledgingr
 Title: R Bindings To 'Sudachi.rs'
 Description: 'Sudachi' is a Japanese morphological analyzer by 'Works Applications'.
 Version: 0.0.0.9003
+URL: https://yutannihilation.github.io/fledgingr/
 Authors@R: 
     person("Hiroaki", "Yutani", , "yutani.ini@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-3385-7233"))

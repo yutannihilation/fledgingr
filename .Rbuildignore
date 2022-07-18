@@ -5,3 +5,6 @@
 ^\.github$
 ^src/.cargo$
 ^src/rust/.vscode$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
