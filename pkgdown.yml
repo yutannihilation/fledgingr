@@ -2,5 +2,8 @@ pandoc: 2.14.2
 pkgdown: 2.0.5
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-07-18T08:03Z
+last_built: 2022-07-18T08:32Z
+urls:
+  reference: https://yutannihilation.github.io/fledgingr/reference
+  article: https://yutannihilation.github.io/fledgingr/articles
 
