@@ -11,10 +11,18 @@ a Rust implementation of Sudachi. Under the hood, this package is
 powered by [extendr framework](https://extendr.github.io/) to bridge
 between R and Rust.
 
-The Rust code here is based mainly on [this CLI
-tool](https://github.com/WorksApplications/sudachi.rs/blob/ad1f15818536a379c668ea48fcebaca2278df38e/sudachi-cli/src/main.rs)
-on the sudachi.rs repository, which is licensed under Apache-2.0
-License.
+### Licenses
+
+In addition to depend on sudachi.rs, the fledgingr package copies the
+several code from sudachi.rs’ repository, which is licensed under the
+Apache-2.0 license.
+
+-   The Rust code here is basically based on [the implementation of the
+    CLI
+    tool](https://github.com/WorksApplications/sudachi.rs/blob/ad1f15818536a379c668ea48fcebaca2278df38e/sudachi-cli/src/main.rs)
+-   The files under `inst/sudachi_resources` are copied from
+    [`resources` directory on the
+    repository](https://github.com/WorksApplications/sudachi.rs/tree/develop/resources)
 
 ## Why fledgingr?
 

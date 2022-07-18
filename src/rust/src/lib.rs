@@ -16,13 +16,12 @@ fn tokenize_inner(
     dictionary_path: &str,
     mode: &str,
 ) -> Robj {
-    reprintln!("config file: {:?}", config_file);
-    reprintln!("resource dir: {:?}", resource_dir);
-    reprintln!("dictionary path: {:?}", dictionary_path);
+    // reprintln!("config file: {:?}", config_file);
+    // reprintln!("resource dir: {:?}", resource_dir);
+    // reprintln!("dictionary path: {:?}", dictionary_path);
 
     let config_file = Some(config_file.into());
-    // let resource_dir = Some(resource_dir.into());
-    let resource_dir = None;
+    let resource_dir = Some(resource_dir.into());
     let dictionary_path = Some(dictionary_path.into());
 
     let config = match Config::new(config_file, resource_dir, dictionary_path) {
