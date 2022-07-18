@@ -60,7 +60,17 @@
 <a class="anchor" aria-label="anchor" href="#fledgingr-an-r-bindings-of-sudachirs"></a>
 </h1></div>
 <!-- badges: start --><!-- badges: end --><p>This is an experimental R package to provide an interface to sudachi.rs, a Rust implementation of Sudachi. Under the hood, this package is powered by <a href="https://extendr.github.io/" class="external-link">extendr framework</a> to bridge between R and Rust.</p>
-<p>The Rust code here is based mainly on <a href="https://github.com/WorksApplications/sudachi.rs/blob/ad1f15818536a379c668ea48fcebaca2278df38e/sudachi-cli/src/main.rs" class="external-link">this CLI tool</a> on the sudachi.rs repository, which is licensed under Apache-2.0 License.</p>
+<div class="section level3">
+<h3 id="licenses">Licenses<a class="anchor" aria-label="anchor" href="#licenses"></a>
+</h3>
+<p>In addition to depend on sudachi.rs, the fledgingr package copies the several code from sudachi.rs’ repository, which is licensed under the Apache-2.0 license.</p>
+<ul>
+<li>The Rust code here is basically based on <a href="https://github.com/WorksApplications/sudachi.rs/blob/ad1f15818536a379c668ea48fcebaca2278df38e/sudachi-cli/src/main.rs" class="external-link">the implementation of the CLI tool</a>
+</li>
+<li>The files under <code>inst/sudachi_resources</code> are copied from <a href="https://github.com/WorksApplications/sudachi.rs/tree/develop/resources" class="external-link"><code>resources</code> directory on the repository</a>
+</li>
+</ul>
+</div>
 <div class="section level2">
 <h2 id="why-fledgingr">Why fledgingr?<a class="anchor" aria-label="anchor" href="#why-fledgingr"></a>
 </h2>
