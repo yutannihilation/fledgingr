@@ -68,6 +68,7 @@ jobs:
         run: |
           cat ./check/fledgingr.Rcheck/00install.out
           find ./check -name libfledgingr.a -ls
+          find ./check/fledgingr.Rcheck/00_pkg_src/fledgingr/src/rust/target/ -type f -ls
 
       # Upload prebuilt binaries for Windows
       - name: Tweak staticlib on Windows
