@@ -97,7 +97,7 @@ check_cargo <- function() {
 
   cat("*** Checking if cargo is installed\n")
 
-  cargo_cmd <- "cargoo"
+  cargo_cmd <- "cargo"
   cargo_args <- "version"
 
   res_version <- safe_system2(cargo_cmd, cargo_args)
