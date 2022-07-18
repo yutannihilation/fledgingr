@@ -95,7 +95,7 @@ jobs:
           mkdir ./staticlib
 
           # Intel macOS
-          mv ./check/fledgingr.Rcheck/00_pkg_src/fledgingr/src/rust/target/debug/.libfledgingr.a staticlib/x86_64-apple-darwin-libfledgingr.a
+          mv ./check/fledgingr.Rcheck/00_pkg_src/fledgingr/src/rust/target/debug/libfledgingr.a staticlib/x86_64-apple-darwin-libfledgingr.a
 
           # For M1 macOS
           rustup target add aarch64-apple-darwin
