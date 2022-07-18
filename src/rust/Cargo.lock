@@ -320,8 +320,8 @@ dependencies = [
 
 [[package]]
 name = "sudachi"
-version = "0.6.6-a1"
-source = "git+https://github.com/WorksApplications/sudachi.rs/#f0bf811699d14ba30a03b43d0e61f2feb0f21070"
+version = "0.6.5"
+source = "git+https://github.com/WorksApplications/sudachi.rs?tag=v0.6.5#f1c977e3c6a9dcaac15a04faa2e0135234af156c"
 dependencies = [
  "aho-corasick",
  "bitflags",
