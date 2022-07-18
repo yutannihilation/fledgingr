@@ -10,8 +10,13 @@
 tokenize <- function(x, mode = c("C", "B", "A")) {
   mode <- match.arg(mode)
 
+  config_file <- system.file("resources", "sudachi.json", package = "fledgingr", mustWork = TRUE)
+  resource_dir <- system.file("resources", package = "fledgingr", mustWork = TRUE)
+
   download_sudachi_dict()
-  tokenize_inner(x, fledgingr_dict_file(), mode)
+  dictonary_path <- fledgingr_dict_file()
+
+  tokenize_inner(x, config_file, resource_dir, dictonary_path, mode)
 }
 
 fledgingr_dict_file <- function(create_dir = FALSE) {
@@ -20,7 +25,7 @@ fledgingr_dict_file <- function(create_dir = FALSE) {
     dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
   }
 
-  path.expand(file.path(cache_dir, "system_full.dic"))
+  normalizePath(path.expand(file.path(cache_dir, "system_full.dic")))
 }
 
 download_sudachi_dict <- function(overwrite = FALSE) {

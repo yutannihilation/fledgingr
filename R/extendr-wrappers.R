@@ -8,5 +8,5 @@
 #' @useDynLib fledgingr, .registration = TRUE
 NULL
 
-tokenize_inner <- function(x, path, mode) .Call(wrap__tokenize_inner, x, path, mode)
+tokenize_inner <- function(x, config_file, resource_dir, dictionary_path, mode) .Call(wrap__tokenize_inner, x, config_file, resource_dir, dictionary_path, mode)
 
