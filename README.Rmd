@@ -13,9 +13,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-# fledgingr: An R Bindings Of [Sudachi.rs](https://github.com/WorksApplications/sudachi.rs)
+# fledgingr: R Bindings to [Sudachi.rs](https://github.com/WorksApplications/sudachi.rs)
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/yutannihilation/fledgingr/actions/workflows/check-full.yaml/badge.svg)](https://github.com/yutannihilation/fledgingr/actions/workflows/check-full.yaml)
+[![fledgingr status badge](https://yutannihilation.r-universe.dev/badges/fledgingr)](https://yutannihilation.r-universe.dev)
 <!-- badges: end -->
 
 This is an experimental R package to provide an interface to sudachi.rs, a Rust implementation of Sudachi.
