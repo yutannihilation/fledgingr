@@ -1,6 +1,6 @@
 CRATE_NAME = fledgingr
 
-LIBDIR = ./rust/target/debug
+LIBDIR = ./rust/target/release
 PKG_LIBS = -L$(LIBDIR) -l$(CRATE_NAME)
 STATLIB = $(LIBDIR)/lib$(CRATE_NAME).a
 
@@ -9,7 +9,7 @@ all: C_clean
 $(SHLIB): $(STATLIB)
 
 $(STATLIB):
-	@BEFORE_CARGO_BUILD@ cargo build --verbose --lib --manifest-path=./rust/Cargo.toml
+	@BEFORE_CARGO_BUILD@ cargo build --verbose --lib --release --manifest-path=./rust/Cargo.toml
 	@AFTER_CARGO_BUILD@
 
 C_clean:
