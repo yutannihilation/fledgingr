@@ -18,10 +18,10 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
 Config/fledgingr/crate_name: fledgingr
 Config/fledgingr/github_repo: yutannihilation/fledgingr
-Config/fledgingr/github_tag: build_20220718-1
+Config/fledgingr/github_tag: build_20220718-2
 Config/fledgingr/binary_sha256sum:
     list(
-        `aarch64-apple-darwin-libfledgingr.a`  = "e33a08bf4f5eee0bf5cfe7da07f1fc47cc66606a97c8298ba0d29bb626d2ff42",
-        `x86_64-apple-darwin-libfledgingr.a`   = "506eab5f3256ef6eda41663531353169987aab1a4e01bf8ce8d6178654f3ce0d",
-        `x86_64-pc-windows-gnu-libfledgingr.a` = "8838b4bfaa9cdb201bbf109c79db2e32ffc6ee26adcdc4fa0afae297dd7da341"
+        `aarch64-apple-darwin-libfledgingr.a`  = "e34ea4b54f3613e272a45212038cc0f9b4c5c5158ed9e3da20893fe70eb7b2b1",
+        `x86_64-apple-darwin-libfledgingr.a`   = "e9f0569878889a0c7f7487b965b6b0284ad2f44adaac9156beb612707723ece5",
+        `x86_64-pc-windows-gnu-libfledgingr.a` = "911233f8be76365913414761cb0a808ceb91fff91746e54e161e47e64e445580"
     )

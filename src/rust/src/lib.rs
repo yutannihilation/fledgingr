@@ -10,12 +10,14 @@ use sudachi::sentence_splitter::{SentenceSplitter, SplitSentences};
 
 #[extendr(use_try_from = true)]
 fn tokenize_inner(x: Strings, path: &str, mode: &str) -> Robj {
+    reprintln!("dictionary path: {:?}", path);
+
     let path = Some(path.into());
 
     let config = match Config::new(None, None, path) {
         Ok(config) => config,
         Err(e) => {
-            reprintln!("{:?}", e);
+            reprintln!("Failed to read config file: {:?}", e);
             return NULL.into();
         }
     };
@@ -23,7 +25,7 @@ fn tokenize_inner(x: Strings, path: &str, mode: &str) -> Robj {
     let dict = match JapaneseDictionary::from_cfg(&config) {
         Ok(dict) => dict,
         Err(e) => {
-            reprintln!("{:?}", e);
+            reprintln!("Failed to get dict: {:?}", e);
             return NULL.into();
         }
     };
@@ -31,7 +33,7 @@ fn tokenize_inner(x: Strings, path: &str, mode: &str) -> Robj {
     let mode = match Mode::from_str(mode) {
         Ok(mode) => mode,
         Err(e) => {
-            reprintln!("{:?}", e);
+            reprintln!("Failed to get mode: {:?}", e);
             return NULL.into();
         }
     };
