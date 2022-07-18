@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fledgingr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9003</span>
       </span>
     </div>
 
@@ -56,21 +56,11 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="fledgingr-an-r-bindings-of-sudachirs">fledgingr: An R Bindings Of <a href="https://github.com/WorksApplications/sudachi.rs" class="external-link">Sudachi.rs</a>
-<a class="anchor" aria-label="anchor" href="#fledgingr-an-r-bindings-of-sudachirs"></a>
+<div class="page-header"><h1 id="fledgingr-r-bindings-to-sudachirs">fledgingr: R Bindings to <a href="https://github.com/WorksApplications/sudachi.rs" class="external-link">Sudachi.rs</a>
+<a class="anchor" aria-label="anchor" href="#fledgingr-r-bindings-to-sudachirs"></a>
 </h1></div>
-<!-- badges: start --><!-- badges: end --><p>This is an experimental R package to provide an interface to sudachi.rs, a Rust implementation of Sudachi. Under the hood, this package is powered by <a href="https://extendr.github.io/" class="external-link">extendr framework</a> to bridge between R and Rust.</p>
-<div class="section level3">
-<h3 id="licenses">Licenses<a class="anchor" aria-label="anchor" href="#licenses"></a>
-</h3>
-<p>In addition to depend on sudachi.rs, the fledgingr package copies the several code from sudachi.rs’ repository, which is licensed under the Apache-2.0 license.</p>
-<ul>
-<li>The Rust code here is basically based on <a href="https://github.com/WorksApplications/sudachi.rs/blob/ad1f15818536a379c668ea48fcebaca2278df38e/sudachi-cli/src/main.rs" class="external-link">the implementation of the CLI tool</a>
-</li>
-<li>The files under <code>inst/sudachi_resources</code> are copied from <a href="https://github.com/WorksApplications/sudachi.rs/tree/develop/resources" class="external-link"><code>resources</code> directory on the repository</a>
-</li>
-</ul>
-</div>
+<!-- badges: start -->
+<p>This is an experimental R package to provide an interface to sudachi.rs, a Rust implementation of Sudachi. Under the hood, this package is powered by <a href="https://extendr.github.io/" class="external-link">extendr framework</a> to bridge between R and Rust.</p>
 <div class="section level2">
 <h2 id="why-fledgingr">Why fledgingr?<a class="anchor" aria-label="anchor" href="#why-fledgingr"></a>
 </h2>
@@ -94,68 +84,47 @@
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="usages">Usages<a class="anchor" aria-label="anchor" href="#usages"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">fledgingr</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  <span class="st">"今日もあなただけにニンジャの真実をお伝えしていきます"</span>,</span>
+<span>  <span class="st">"真実をお伝えしていきます"</span>,</span>
 <span>  <span class="st">"高輪ゲートウェイ駅"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/tokenize.html">tokenize</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    id            surface    dictionary_form             reading_form</span></span>
-<span><span class="co">#&gt; 1   0               今日               今日                   キョウ</span></span>
-<span><span class="co">#&gt; 2   0                 も                 も                       モ</span></span>
-<span><span class="co">#&gt; 3   0             あなた             あなた                   アナタ</span></span>
-<span><span class="co">#&gt; 4   0               だけ               だけ                     ダケ</span></span>
-<span><span class="co">#&gt; 5   0                 に                 に                       ニ</span></span>
-<span><span class="co">#&gt; 6   0           ニンジャ           ニンジャ                 ニンジャ</span></span>
-<span><span class="co">#&gt; 7   0                 の                 の                       ノ</span></span>
-<span><span class="co">#&gt; 8   0               真実               真実                 シンジツ</span></span>
-<span><span class="co">#&gt; 9   0                 を                 を                       ヲ</span></span>
-<span><span class="co">#&gt; 10  0                 お                 お                       オ</span></span>
-<span><span class="co">#&gt; 11  0               伝え             伝える                   ツタエ</span></span>
-<span><span class="co">#&gt; 12  0                 し               する                       シ</span></span>
-<span><span class="co">#&gt; 13  0                 て                 て                       テ</span></span>
-<span><span class="co">#&gt; 14  0               いき               いく                     イキ</span></span>
-<span><span class="co">#&gt; 15  0               ます               ます                     マス</span></span>
-<span><span class="co">#&gt; 16  1 高輪ゲートウェイ駅 高輪ゲートウェイ駅 タカナワゲートウェイエキ</span></span>
-<span><span class="co">#&gt;       normalized_form part_of_speech1 part_of_speech2 part_of_speech3</span></span>
-<span><span class="co">#&gt; 1                今日            名詞        普通名詞        副詞可能</span></span>
-<span><span class="co">#&gt; 2                  も            助詞          係助詞               *</span></span>
-<span><span class="co">#&gt; 3                貴方          代名詞               *               *</span></span>
-<span><span class="co">#&gt; 4                だけ            助詞          副助詞               *</span></span>
-<span><span class="co">#&gt; 5                  に            助詞          格助詞               *</span></span>
-<span><span class="co">#&gt; 6                忍者            名詞        普通名詞            一般</span></span>
-<span><span class="co">#&gt; 7                  の            助詞          格助詞               *</span></span>
-<span><span class="co">#&gt; 8                真実            名詞        普通名詞            一般</span></span>
-<span><span class="co">#&gt; 9                  を            助詞          格助詞               *</span></span>
-<span><span class="co">#&gt; 10                 御          接頭辞               *               *</span></span>
-<span><span class="co">#&gt; 11             伝える            動詞            一般               *</span></span>
-<span><span class="co">#&gt; 12               為る            動詞      非自立可能               *</span></span>
-<span><span class="co">#&gt; 13                 て            助詞        接続助詞               *</span></span>
-<span><span class="co">#&gt; 14               行く            動詞      非自立可能               *</span></span>
-<span><span class="co">#&gt; 15               ます          助動詞               *               *</span></span>
-<span><span class="co">#&gt; 16 高輪ゲートウェイ駅            名詞        固有名詞            一般</span></span>
-<span><span class="co">#&gt;    part_of_speech4 inflectional_type inflectional_form</span></span>
-<span><span class="co">#&gt; 1                *                 *                 *</span></span>
-<span><span class="co">#&gt; 2                *                 *                 *</span></span>
-<span><span class="co">#&gt; 3                *                 *                 *</span></span>
-<span><span class="co">#&gt; 4                *                 *                 *</span></span>
-<span><span class="co">#&gt; 5                *                 *                 *</span></span>
-<span><span class="co">#&gt; 6                *                 *                 *</span></span>
-<span><span class="co">#&gt; 7                *                 *                 *</span></span>
-<span><span class="co">#&gt; 8                *                 *                 *</span></span>
-<span><span class="co">#&gt; 9                *                 *                 *</span></span>
-<span><span class="co">#&gt; 10               *                 *                 *</span></span>
-<span><span class="co">#&gt; 11               *       下一段-ア行       連用形-一般</span></span>
-<span><span class="co">#&gt; 12               *          サ行変格       連用形-一般</span></span>
-<span><span class="co">#&gt; 13               *                 *                 *</span></span>
-<span><span class="co">#&gt; 14               *         五段-カ行       連用形-一般</span></span>
-<span><span class="co">#&gt; 15               *       助動詞-マス       終止形-一般</span></span>
-<span><span class="co">#&gt; 16               *                 *                 *</span></span></code></pre></div>
+<span><span class="co">#&gt;   id            surface    dictionary_form             reading_form</span></span>
+<span><span class="co">#&gt; 1  0               真実               真実                 シンジツ</span></span>
+<span><span class="co">#&gt; 2  0                 を                 を                       ヲ</span></span>
+<span><span class="co">#&gt; 3  0                 お                 お                       オ</span></span>
+<span><span class="co">#&gt; 4  0               伝え             伝える                   ツタエ</span></span>
+<span><span class="co">#&gt; 5  0                 し               する                       シ</span></span>
+<span><span class="co">#&gt; 6  0                 て                 て                       テ</span></span>
+<span><span class="co">#&gt; 7  0               いき               いく                     イキ</span></span>
+<span><span class="co">#&gt; 8  0               ます               ます                     マス</span></span>
+<span><span class="co">#&gt; 9  1 高輪ゲートウェイ駅 高輪ゲートウェイ駅 タカナワゲートウェイエキ</span></span>
+<span><span class="co">#&gt;      normalized_form part_of_speech1 part_of_speech2 part_of_speech3</span></span>
+<span><span class="co">#&gt; 1               真実            名詞        普通名詞            一般</span></span>
+<span><span class="co">#&gt; 2                 を            助詞          格助詞               *</span></span>
+<span><span class="co">#&gt; 3                 御          接頭辞               *               *</span></span>
+<span><span class="co">#&gt; 4             伝える            動詞            一般               *</span></span>
+<span><span class="co">#&gt; 5               為る            動詞      非自立可能               *</span></span>
+<span><span class="co">#&gt; 6                 て            助詞        接続助詞               *</span></span>
+<span><span class="co">#&gt; 7               行く            動詞      非自立可能               *</span></span>
+<span><span class="co">#&gt; 8               ます          助動詞               *               *</span></span>
+<span><span class="co">#&gt; 9 高輪ゲートウェイ駅            名詞        固有名詞            一般</span></span>
+<span><span class="co">#&gt;   part_of_speech4 inflectional_type inflectional_form</span></span>
+<span><span class="co">#&gt; 1               *                 *                 *</span></span>
+<span><span class="co">#&gt; 2               *                 *                 *</span></span>
+<span><span class="co">#&gt; 3               *                 *                 *</span></span>
+<span><span class="co">#&gt; 4               *       下一段-ア行       連用形-一般</span></span>
+<span><span class="co">#&gt; 5               *          サ行変格       連用形-一般</span></span>
+<span><span class="co">#&gt; 6               *                 *                 *</span></span>
+<span><span class="co">#&gt; 7               *         五段-カ行       連用形-一般</span></span>
+<span><span class="co">#&gt; 8               *       助動詞-マス       終止形-一般</span></span>
+<span><span class="co">#&gt; 9               *                 *                 *</span></span></code></pre></div>
 <p>You can change the mode. By default, <code>"C"</code> is chosen.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/tokenize.html">tokenize</a></span><span class="op">(</span><span class="st">"選挙管理委員会"</span>, mode <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span><span class="op">$</span><span class="va">surface</span></span>
@@ -164,6 +133,17 @@
 <span><span class="co">#&gt; [1] "選挙"   "管理"   "委員会"</span></span>
 <span><span class="fu"><a href="reference/tokenize.html">tokenize</a></span><span class="op">(</span><span class="st">"選挙管理委員会"</span>, mode <span class="op">=</span> <span class="st">"C"</span><span class="op">)</span><span class="op">$</span><span class="va">surface</span></span>
 <span><span class="co">#&gt; [1] "選挙管理委員会"</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="licenses">Licenses<a class="anchor" aria-label="anchor" href="#licenses"></a>
+</h2>
+<p>In addition to depend on sudachi.rs, the fledgingr package copies the several code from sudachi.rs’ repository, which is licensed under the Apache-2.0 license.</p>
+<ul>
+<li>The Rust code here is basically based on <a href="https://github.com/WorksApplications/sudachi.rs/blob/ad1f15818536a379c668ea48fcebaca2278df38e/sudachi-cli/src/main.rs" class="external-link">the implementation of the CLI tool</a>
+</li>
+<li>The files under <code>inst/sudachi_resources</code> are copied from <a href="https://github.com/WorksApplications/sudachi.rs/tree/develop/resources" class="external-link"><code>resources</code> directory on the repository</a>
+</li>
+</ul>
 </div>
 </div>
   </div>
@@ -192,7 +172,13 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/yutannihilation/fledgingr/actions/workflows/check-full.yaml" class="external-link"><img src="https://github.com/yutannihilation/fledgingr/actions/workflows/check-full.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://yutannihilation.r-universe.dev" class="external-link"><img src="https://yutannihilation.r-universe.dev/badges/fledgingr" alt="fledgingr status badge"></a></li>
+</ul>
+</div>
 
   </div>
 </div>
